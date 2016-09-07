@@ -7,7 +7,7 @@ It's a cool way to show share widget.
 
 ## Usage
 
-Just confirm your parentView to locate the share widget, and then you can custom by yourself.
+step 1. Confirm your parentView to locate the share widget, and then you can custom by yourself.
 
 ```java
 FlipShareView share = new FlipShareView.Builder(this, mBtnLeftTop)
@@ -20,7 +20,55 @@ FlipShareView share = new FlipShareView.Builder(this, mBtnLeftTop)
                         .setSeparateLineColor(0x30000000)
                         .setAnimType(FlipShareView.TYPE_SLIDE)
                         .create();
+```
+step 2. Recognize some custom Attributes.
 
+**Animation type**
+
+```java
+@IntDef(flag = true, value = {TYPE_VERTICLE, TYPE_HORIZONTAL, TYPE_SLIDE})
+    public @interface AnimType {
+}
+   
+```
+
+**Builder**
+
+```java
+public Builder addItem(ShareItem shareItem) {
+    mShareItemList.add(shareItem);
+    return this;
+}
+
+public Builder addItems(List<ShareItem> list) {
+    mShareItemList.addAll(list);
+    return this;
+}
+
+public Builder setItemDuration(int mils) {
+    mMilliSecond = mils;
+    return this;
+}
+
+public Builder setAnimType(@AnimType int animType) {
+    mAnimType = animType;
+    return this;
+}
+
+public Builder setBackgroundColor(int color) {
+    mBgColor = color;
+    return this;
+}
+
+public Builder setSeparateLineColor(int color) {
+    mSeparateLineColor = color;
+    return this;
+}
+```
+
+step 3. Add OnFlipClickListener to get some callback.
+
+```java
 share.setOnFlipClickListener(new FlipShareView.OnFlipClickListener() {
     @Override
     public void onItemClick(int position) {
