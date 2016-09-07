@@ -1,6 +1,29 @@
+## What's FlipShare ?
+It's a cool way to show share widget.
+
 ## Demo
 
 ![Markdown](https://raw.githubusercontent.com/jeasonwong/FlipShare/master/screenshots/flipshare.gif)
+
+## Import
+
+Step 1. Add it in your project's build.gradle at the end of repositories:
+
+```gradle
+repositories {
+    maven {
+        url 'https://dl.bintray.com/wangyuwei/maven'
+    }
+}
+```
+
+Step 2. Add the dependency:
+
+```gradle
+dependencies {
+  compile 'me.wangyuwei:FlipShare:1.0.1'
+}
+```
 
 ### About Me
 
