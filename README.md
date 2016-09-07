@@ -5,6 +5,34 @@ It's a cool way to show share widget.
 
 ![Markdown](https://raw.githubusercontent.com/jeasonwong/FlipShare/master/screenshots/flipshare.gif)
 
+## Usage
+
+Just confirm your parentView to locate the share widget, and then you can custom by yourself.
+
+```java
+FlipShareView share = new FlipShareView.Builder(this, mBtnLeftTop)
+                        .addItem(new ShareItem("Facebook", Color.WHITE, 0xff43549C, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_facebook)))
+                        .addItem(new ShareItem("Twitter", Color.WHITE, 0xff4999F0, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_twitter)))
+                        .addItem(new ShareItem("Google+", Color.WHITE, 0xffD9392D, BitmapFactory.decodeResource(getResources(), R.mipmap.ic_google)))
+                        .addItem(new ShareItem("http://www.wangyuwei.me", Color.WHITE, 0xff57708A))
+                        .setBackgroundColor(0x60000000)
+                        .setItemDuration(500)
+                        .setSeparateLineColor(0x30000000)
+                        .setAnimType(FlipShareView.TYPE_SLIDE)
+                        .create();
+
+share.setOnFlipClickListener(new FlipShareView.OnFlipClickListener() {
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(MainActivity.this, "position " + position + " is clicked.", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void dismiss() {
+    }
+});
+```
+
 ## Import
 
 Step 1. Add it in your project's build.gradle at the end of repositories:
