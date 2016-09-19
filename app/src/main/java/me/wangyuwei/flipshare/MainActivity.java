@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .create();
                 break;
             case R.id.btn_middle_bottom:
-                new FlipShareView.Builder(this, mBtnMiddleBottom)
+                FlipShareView shareBottom = new FlipShareView.Builder(this, mBtnMiddleBottom)
                         .addItem(new ShareItem("Facebook"))
                         .addItem(new ShareItem("Twitter"))
                         .addItem(new ShareItem("Google+"))
@@ -104,6 +104,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setBackgroundColor(0x60000000)
                         .setAnimType(FlipShareView.TYPE_SLIDE)
                         .create();
+                shareBottom.setOnFlipClickListener(new FlipShareView.OnFlipClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        Toast.makeText(MainActivity.this, "position " + position + " is clicked.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void dismiss() {
+
+                    }
+                });
                 break;
             case R.id.btn_right_bottom:
                 new FlipShareView.Builder(this, mBtnRightBottom)

@@ -97,7 +97,7 @@ Step 2. Add the dependency:
 
 ```gradle
 dependencies {
-  compile 'me.wangyuwei:FlipShare:1.0.1'
+  compile 'me.wangyuwei:FlipShare:1.0.2'
 }
 ```
 

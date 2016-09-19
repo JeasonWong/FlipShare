@@ -272,6 +272,7 @@ public class FlipShareView extends View {
                         , mItemLeft + mItemWidth, mFirstItemTop - (mItemList.size() - i - 1) * mItemHeight - mSeparateLineHeight, mPaint);
             }
 
+            mItemRectList.add(new RectF(mItemLeft, (mFirstItemTop - mItemHeight) - i * mItemHeight, mItemLeft + mItemWidth,mFirstItemTop - i * mItemHeight));
 
             drawTitle(canvas, i);
             drawIcon(canvas, i);
